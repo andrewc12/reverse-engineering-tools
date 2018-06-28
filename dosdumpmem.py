@@ -1,5 +1,7 @@
 import gdb
 import math
+import datetime
+
 class DumpMem (gdb.Command):
   """Dump memory in blocks"""
 
@@ -14,6 +16,7 @@ class DumpMem (gdb.Command):
     blocksize = 2 ** int(args[1])
     
     filename = "result0"
+    filename = datetime.datetime.now().strftime("%Y%m%d-%H%M%S%f")
     if len(args) > 2:
         filename = args[2]
     
